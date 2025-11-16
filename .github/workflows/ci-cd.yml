@@ -8,8 +8,6 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
-    env:
-      REGISTRY_IMAGE: ghcr.io/${{ toLower(github.repository_owner) }}/image-processor-backend
 
     steps:
       - name: Checkout
@@ -38,7 +36,8 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          IMAGE="${REGISTRY_IMAGE}"
+          OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          IMAGE=ghcr.io/$OWNER/image-processor-backend
           TAG=${{ github.sha }}
 
           docker build -t "$IMAGE:$TAG" -t "$IMAGE:latest" -f backend.Dockerfile .
@@ -50,7 +49,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     env:
-      REGISTRY_IMAGE: ghcr.io/${{ toLower(github.repository_owner) }}/image-processor-backend
+      REGISTRY_IMAGE: ghcr.io/${{ github.repository_owner }}/image-processor-backend
 
     steps:
       - name: Checkout
@@ -68,7 +67,8 @@ jobs:
 
       - name: Update backend deployment image
         run: |
-          IMAGE="${REGISTRY_IMAGE}:latest"
+          OWNER=$(echo "${{ github.repository_owner }}" | tr '[:upper:]' '[:lower:]')
+          IMAGE=ghcr.io/$OWNER/image-processor-backend:latest
           kubectl set image deployment/image-backend \
             image-backend=$IMAGE -n image-app
           kubectl rollout status deployment/image-backend -n image-app
