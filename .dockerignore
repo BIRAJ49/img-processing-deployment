@@ -1,0 +1,11 @@
+node_modules
+server/node_modules
+web/node_modules
+npm-debug.log
+Dockerfile*
+docker-compose.yml
+.git
+.gitignore
+uploads
+storage/uploads
+storage/processed

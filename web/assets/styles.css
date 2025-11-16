@@ -1,0 +1,229 @@
+:root {
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #1f2942, #090e1c 60%);
+  color: #f8fafc;
+  min-height: 100vh;
+}
+.page-header {
+  padding: 2.5rem 1rem 1.5rem;
+  text-align: center;
+}
+.page-header h1 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  letter-spacing: -0.02em;
+}
+.page-header p {
+  margin: 0;
+  color: #cbd5f5;
+}
+main {
+  width: min(1100px, 95vw);
+  margin: 0 auto 4rem;
+}
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.panel {
+  background: rgba(9, 14, 28, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 18px;
+  padding: 1.75rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+}
+.hero {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #cbd5f5;
+}
+.upload-panel h2,
+.jobs-panel h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+}
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.upload-form input[type='file'] {
+  width: 100%;
+  border: 1px dashed rgba(148, 163, 184, 0.5);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  background: rgba(15, 23, 42, 0.4);
+  cursor: pointer;
+  color: #e2e8f0;
+}
+.upload-form__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  color: #cbd5f5;
+}
+.upload-form__label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.upload-form__label-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #f8fafc;
+}
+.upload-form__range {
+  width: 100%;
+  accent-color: #60a5fa;
+}
+.upload-form__hint {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+.upload-form button {
+  align-self: flex-start;
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  border: none;
+  color: white;
+  font-weight: 600;
+  padding: 0.9rem 1.75rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.upload-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.upload-message {
+  margin-top: 0.75rem;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+}
+.jobs-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.jobs-panel__header p {
+  margin: 0;
+  color: #94a3b8;
+}
+.ghost-btn {
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: transparent;
+  color: #f8fafc;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+.ghost-btn:hover {
+  border-color: #f8fafc;
+}
+.job-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.1rem;
+}
+.job-card {
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.7);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.job-card--highlighted {
+  border-color: #38bdf8;
+  transform: translateY(-3px);
+}
+.job-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.job-card__header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.job-card__header small {
+  color: #94a3b8;
+}
+.job-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.job-card__hint {
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+.job-card__hint--positive {
+  color: #34d399;
+}
+.job-card__image {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+.job-card__placeholder {
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px dashed rgba(148, 163, 184, 0.4);
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #94a3b8;
+}
+.job-card__error {
+  color: #f87171;
+  margin: 0;
+  font-size: 0.9rem;
+}
+.job-card__link {
+  color: #60a5fa;
+  text-decoration: none;
+  font-size: 0.9rem;
+  align-self: flex-start;
+}
+.status-pill {
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+.empty-state {
+  margin-top: 1rem;
+  text-align: center;
+  color: #94a3b8;
+}
+@media (max-width: 640px) {
+  .panel {
+    padding: 1.25rem;
+  }
+  .upload-form button {
+    width: 100%;
+  }
+}

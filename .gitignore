@@ -1,0 +1,8 @@
+node_modules/
+server/node_modules/
+server/.env
+.env
+.venv/
+storage/uploads/
+storage/processed/
+.DS_Store
