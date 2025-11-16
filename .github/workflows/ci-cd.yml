@@ -19,11 +19,11 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        working-directory: backend
+        working-directory: server
         run: npm install
 
       - name: Run tests
-        working-directory: backend
+        working-directory: server
         run: |
           npm test || echo "no tests yet"
 
